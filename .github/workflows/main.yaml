@@ -14,5 +14,4 @@ jobs:
               run: "echo ${{toJson(env)}}"
             - name: show complete runner context
               run: "echo ${{toJson(runner)}}"
-            - name: show complete matrix context
-              run: "echo ${{toJson(matrix)}}"                    
+                              
