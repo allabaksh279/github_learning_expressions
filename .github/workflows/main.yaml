@@ -1,27 +1,16 @@
+---
 on:
-  push:
-    branches:
-      - main
-
+    push:
+        branches:
+            - main
 jobs:
-  context-job:
-    runs-on: ubuntu-latest
-    steps:
-      - name: show repo and actor
-        run: echo "Repo: ${{ github.repository }} by ${{ github.actor }}"
-
-      - name: show complete github context
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
-        run: echo "$GITHUB_CONTEXT"
-
-      - name: show complete env context
-        env:
-          ENV_CONTEXT: ${{ toJson(env) }}
-        run: echo "$ENV_CONTEXT"
-
-      - name: show complete runner context
-        env:
-          RUNNER_CONTEXT: ${{ toJson(runner) }}
-        run: echo "$RUNNER_CONTEXT"
-                              
+    context-job:
+        runs-on: ubuntu-latest
+        steps:
+            - run: "echo Repo: ${{ github.repository }} by ${{ github.actor }}"
+            - name: Show complete github context
+              run: echo '${{ toJson(github)}}'
+            - name: Show complete env context
+              run: echo '${{ toJson(env)}}'
+            - name: Show complete runner context
+              run: echo '${{ toJson(runner)}}'                    
