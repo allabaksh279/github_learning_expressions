@@ -1,10 +1,8 @@
 ---
-
 on:
     push:
         branches:
             - main
-            
 jobs:
     job-1:
         runs-on: ubuntu-latest
@@ -12,7 +10,7 @@ jobs:
             artifact: my-app
         steps:
             - id: step1
-            - name: step 1
+              name: step 1
               run: echo "tip=hello" >> $GITHUB_OUTPUT
             - name: step 2
               run: echo "output from step1 is ${{ steps.step1.outputs.tip }}"
@@ -20,5 +18,4 @@ jobs:
         needs: job-1
         runs-on: ubuntu-latest
         steps:
-            - run: echo "${{ needs.job-1.outputs.artifact }}"            
-              
+            - run: echo "${{ needs.job-1.outputs.artifact }}"                                
