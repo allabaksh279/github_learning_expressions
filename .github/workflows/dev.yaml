@@ -9,8 +9,9 @@ jobs:
     job-1:
         runs-on: ubuntu-latest
         outputs:
-            artifacts: my-app
+            artifact: my-app
         steps:
+            - id: step1
             - name: step 1
               run: echo "tip=hello" >> $GITHUB_OUTPUT
             - name: step 2
